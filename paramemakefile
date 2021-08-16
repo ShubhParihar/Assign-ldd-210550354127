@@ -1,0 +1,11 @@
+obj_m: = parameter.o
+		KERNELDIR=/lib/modules/$(shell 5.10.52-v7l+)/build
+
+default:
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+
+install:
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules_install
+
+clean:
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) clean
